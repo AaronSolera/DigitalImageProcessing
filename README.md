@@ -1,2 +1,2 @@
 # DigitalImageProcessing
-This folder was made for uploading code related to Digital Image Processing course.
+Este repositorio fue creado para subir códigos relacionados al curso "Procesamiento y Análisis de Imágenes Digitales".
