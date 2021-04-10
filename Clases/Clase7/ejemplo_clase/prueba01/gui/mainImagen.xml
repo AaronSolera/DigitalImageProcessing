@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.941 0.941 0.941]" HPosition="center" Name="mainImagen" Position="[1 762 809 317]" Resize="off" VPosition="center" windowStyle="normal">
+    <GlobalSrc>%
+% El código fuente escrito aquí será ejecutado cuando
+% la ventana se haga visible. Funciona como el evento 'onLoad' de otros lenguajes.
+%
+pkg load image
+pkg load video
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" Name="img1" Position="[236 74 207 169]"/>
+    <uiControl class="textCtrl" BackgroundColor="[0.941 0.941 0.941]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_2" Position="[274 40 130 22]" String="Imagen Cargada" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.122 0.384 0.184]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.231 0.639 0.557]" GenerateCallBack="true" Name="btn1" Position="[78 120 102 30]" String="Cargar Imagen" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivdados, para activarlos debe activar
+% propertie 'generateCallback' from the properties editor
+
+[file,path] = uigetfile ({'*.gif;*.png;*.jpg', 'Supported Picture Formats'}); %Ventana de dialogo para seleccionar la imagen
+text=fullfile(path, file); %Direccion donde se encuentra la imagen
+
+A=imread(text);
+axes(mainImagen.img1)
+imshow(A)
+
+%Calcular el negativo de A
+B=negativo(A); %La funcion negativo la implementamos en Octave
+axes(mainImagen.img2)
+imshow(B)
+
+
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" Name="img2" Position="[520 74 209 168]"/>
+    <uiControl class="textCtrl" BackgroundColor="[0.941 0.941 0.941]" FontAngle="normal" FontName="Arial" FontSize="12" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_3" Position="[539 40 171 22]" String="Negativo de la Imagen" TooltipString=""/>
+    <uiControl class="sliderCtrl" BackgroundColor="[0.941 0.941 0.941]" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Max="99" Min="0" Name="Slider1" Position="[65 250 345 22]" TooltipString="" Value="0">% This code will be executed when user change the value of slider.
+% Por defecto, todos los eventos están desactivdados, para activarlos debe activar
+% propertie 'generateCallbck' from the properties editor
+
+text1=get(mainImagen.Slider1,'Value');
+set(mainImagen.lbl1,'String',num2str(text1));</uiControl>
+    <uiControl class="cmbCtrl" BackgroundColor="[0.941 0.941 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="ComboBox_1" Position="[85 40 63 25]" String="Value A|Value B|Value C|Valor D" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.941 0.941 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="lbl1" Position="[470 250 45 16]" String="Label_4" TooltipString=""></uiControl>
+</dialog>
