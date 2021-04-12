@@ -6,7 +6,5 @@ function [B,C] = rango_reducido(A, r)
   Sr = S(1:r, 1:r);
   
   B = Ur * Sr;
-  C = Vr';
-  %Ar = B*C
-  
+  C = Vr'; %Ar = B*C
 endfunction
