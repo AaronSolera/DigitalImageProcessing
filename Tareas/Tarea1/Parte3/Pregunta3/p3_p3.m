@@ -38,10 +38,9 @@ function [A_c0] = Pc0(A_, c0)
 endfunction
 
 function [L, S, error] = godec(A, k, c0, epsilon)
-  L = A; S = zeros(size(A)); t = 0; error = 0;
+  L = A; S = zeros(size(A)); error = 0;
   do
     prev_error = error;
-    t = t + 1;
     L = svd_red(A - S, k);
     S = Pc0(A - L, c0);
     error = norm(A - L - S, 'fro')**2 / norm(A, 'fro')**2;
@@ -59,35 +58,46 @@ function [L, S, error] = godec_fast(A, k, c0, epsilon)
   until abs(error - prev_error) < epsilon
 endfunction
 
-video = VideoReader('files/video.mp4');
+video = VideoReader('files/video_mega_resized.mp4');
 % La matriz Y tiene la información del video
 % Crear el video
-video2L = VideoWriter('files/video1_L.mp4');
-video2S = VideoWriter('files/video1_S.mp4');
+video1_L = VideoWriter('files/video1_L.mp4');
+video1_S = VideoWriter('files/video1_S.mp4');
 fr = video.NumberOfFrames % Número de Frames (Imágenes)
-m = video.Height % Número de Filas
-n = video.Width % Número de Columnas
+m = video.Height; % Número de Filas
+n = video.Width;  % Número de Columnas
 k = 2;
 c0 = 0.07 * m * n;
 epsilon = 10**-9;
-pp_video = zeros(m, n, fr); % Matriz que representa a un video
-bg_video = zeros(m, n, fr); % Matriz que representa a un video
+pp_video = zeros(m, n, 3, fr); % Matriz que representa a un video
+bg_video = zeros(m, n, 3, fr); % Matriz que representa a un video
 
-for f = 1 : 30
+for f = 1 : fr
   frame = readFrame(video);
   frame = im2double(frame);
-  frame = rgb2gray(frame);
   display(f)
   % Guardando la información de V en Y
-  [bg_video(:, :, f), pp_video(:, :, f)] = godec(frame, k, c0, epsilon);
-  temp_bg_frame = bg_video(:, :, f);
-  temp_pp_frame = pp_video(:, :, f);
-  % 
-  %imshow(uint8(temp_bg_frame))
-  %imshow(uint8(temp_pp_frame))
-  % 
-  % writeVideo(video2L, temp_bg_frame);
-  % writeVideo(video2S, temp_pp_frame);
+  [L1, S1, _] = godec(frame(:, :, 1), k, c0, epsilon);
+  [L2, S2, _] = godec(frame(:, :, 2), k, c0, epsilon);
+  [L3, S3, _] = godec(frame(:, :, 3), k, c0, epsilon);
+  pp_video(:, :, 1, f) = im2uint8(L1);
+  pp_video(:, :, 2, f) = im2uint8(L2);
+  pp_video(:, :, 3, f) = im2uint8(L3);
+  bg_video(:, :, 1, f) = im2uint8(S1);
+  bg_video(:, :, 2, f) = im2uint8(S2);
+  bg_video(:, :, 3, f) = im2uint8(S3);
+  %subplot(1,2,1)
+  %imshow(bg_video(:, :, :, f));
+  %title('Background video');
+  %subplot(1,2,2)
+  %imshow(pp_video(:, :, :, f));
+  %title('People video');
+  %pause(0.00001);
 end
+
+for f = 1 : fr
+  writeVideo(video1_L, bg_video(:, :, :, f));
+  writeVideo(video1_S, pp_video(:, :, :, f));
+endfor
 
 close(video)
