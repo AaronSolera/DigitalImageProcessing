@@ -58,7 +58,7 @@ function [L, S, error] = godec_fast(A, k, c0, epsilon)
   until abs(error - prev_error) < epsilon
 endfunction
 
-video = VideoReader('files/video_mega_resized.mp4');
+video = VideoReader('files/video_resized.mp4');
 % La matriz Y tiene la información del video
 % Crear el video
 video1_L = VideoWriter('files/video1_L.mp4');
@@ -86,13 +86,13 @@ for f = 1 : fr
   bg_video(:, :, 1, f) = im2uint8(S1);
   bg_video(:, :, 2, f) = im2uint8(S2);
   bg_video(:, :, 3, f) = im2uint8(S3);
-  %subplot(1,2,1)
-  %imshow(bg_video(:, :, :, f));
-  %title('Background video');
-  %subplot(1,2,2)
-  %imshow(pp_video(:, :, :, f));
-  %title('People video');
-  %pause(0.00001);
+  subplot(1,2,1)
+  imshow(bg_video(:, :, :, f));
+  title('Background video');
+  subplot(1,2,2)
+  imshow(pp_video(:, :, :, f));
+  title('People video');
+  pause(0.00001);
 end
 
 for f = 1 : fr
