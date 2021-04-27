@@ -1,10 +1,10 @@
 ## -*- texinfo -*-
-## @deftypefn  {} {@var{wnd} =} mainImagen ()
+## @deftypefn  {} {@var{wnd} =} main ()
 ##
 ## Create and show the dialog, return a struct as representation of dialog.
 ##
 ## @end deftypefn
-function wnd = mainImagen()
-  mainImagen_def;
-  wnd = show_mainImagen();
+function wnd = main()
+  main_def;
+  wnd = show_main();
 end

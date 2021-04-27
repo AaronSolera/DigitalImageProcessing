@@ -69,7 +69,7 @@ def rotation(X, theta):
 				if xt < m and yt < n:
 					Y[xt, yt] = X[x, y]
 
-	Y = median_filter(Y, window_size=(3,3))
+	#Y = median_filter(Y, window_size=(3,3))
 
 	return Y
 
@@ -99,7 +99,8 @@ def rotation_rgb(X, theta):
     return Y
 
 
-I = read_image('imagen1.jpg')
+#I = read_image('imagen1.jpg') #Original que le enviamos
+I = read_image('barbara.jpg')
 
 Y = rotation_rgb(I, theta=math.pi/4)
 

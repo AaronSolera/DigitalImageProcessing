@@ -87,3 +87,5 @@ W_ast = (1 / alfa) * (D_ast - S);
 subplot(2,2,4)
 imshow(W_ast)
 title('Marca de Agua Extraída')
+
+pause(20)

@@ -73,3 +73,5 @@ title('Imagen con ruido y Marca de agua')
 subplot(1,2,2)
 imshow(W_ast)
 title('Marca de Agua Extraída')
+
+pause(20)
