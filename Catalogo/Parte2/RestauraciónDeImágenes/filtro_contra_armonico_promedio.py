@@ -22,7 +22,6 @@ pyplot.imshow(B, cmap = 'gray')
 pyplot.title("Imagen con Ruido")
 
 # Filtro Contra-armónico promedio de orden R
-
 R = 2
 At1 = np.zeros((m, n))
 for x in range(0, m):
