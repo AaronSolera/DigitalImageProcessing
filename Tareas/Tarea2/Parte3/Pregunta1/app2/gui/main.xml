@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 478 1589 602]" Resize="off" VPosition="center" windowStyle="normal">
+    <GlobalSrc>% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivados, para activarlos debe activar
+% la propiedad 'generateCallback' desde el editor de propiedades
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_1" Position="[50 81 478 386]"/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_13" Position="[50 65 478 17]" String="Original Image" TooltipString=""/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[550 83 478 385]"/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_3" Position="[1050 83 479 385]"/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_14" Position="[550 65 478 17]" String="Kernel" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_15" Position="[1050 65 478 17]" String="Restored Image" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_7" Position="[50 495 90 25]" String="Load Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivados, para activarlos debe activar
+% la propiedad 'generateCallback' desde el editor de propiedades
+
+global A file path
+
+[file, path] = uigetfile ({'*.gif;*.png;*.jpg', 'Supported Picture Formats'}); %Ventana de dialogo para seleccionar la imagen
+text=fullfile(path, file); %Direccion donde se encuentra la imagen
+
+A = imread(text);
+axes(main.Image_1)
+imshow(A)</uiControl>
+    <uiControl class="cmbCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="ComboBox" Position="[655 495 88 25]" String="kernel1|kernel2" TooltipString="">global K
+
+filter_id = get(main.ComboBox, 'Value');
+a = 0.073235;
+b = 0.176765; 
+c = 0.125;
+
+switch (filter_id)
+	case 1
+   		% Apply kernel 1
+		K = [a b a; b 0 b; a b a];
+  	case 2
+   		% Apply kernel 2
+		K = [c c c; c 0 c; c c c];
+  	otherwise
+   		% Apply kernel 1
+		K = [a b a; b 0 b; a b a];
+endswitch
+
+axes(main.Image_2)
+imshow(K)</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_8" Position="[550 495 90 25]" String="Apply" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivados, para activarlos debe activar
+% la propiedad 'generateCallback' desde el editor de propiedades
+
+global A kernel_name
+ 
+filter_id = get(main.ComboBox, 'Value');
+
+switch (filter_id)
+	case 1
+   		kernel_name = &quot;kernel1_&quot;;
+  	case 2
+		kernel_name = &quot;kernel2_&quot;;
+  	otherwise
+		kernel_name = &quot;kernel1_&quot;;
+endswitch
+
+% Metodo de retaurancion que usa K en A
+
+axes(main.Image_3)
+imshow(A)</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_9" Position="[1050 495 90 24]" String="Save Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivados, para activarlos debe activar
+% la propiedad 'generateCallback' desde el editor de propiedades
+
+global A file path kernel_name
+
+display([&quot;The restored image has been saved at &quot; path kernel_name file]);
+imwrite(A, [path kernel_name file]);</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="30" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_11" Position="[1529 10 45 43]" String="?" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+% Por defecto, todos los eventos están desactivados, para activarlos debe activar
+% la propiedad 'generateCallback' desde el editor de propiedades</uiControl>
+</dialog>
