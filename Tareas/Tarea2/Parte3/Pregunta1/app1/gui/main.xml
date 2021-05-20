@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 451 196 24]" Resize="off" VPosition="center" windowStyle="normal">
+<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 523 1118 557]" Resize="off" VPosition="center" windowStyle="normal">
     <GlobalSrc>%
 % El código fuente escrito aquí será ejecutado cuando
 % la ventana se haga visible. Funciona como el evento 'onLoad' de otros lenguajes.
 %
 </GlobalSrc>
-    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_1" Position="[65 420 90 27]" String="Load Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_1" Position="[65 430 90 27]" String="Load Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
 
@@ -20,8 +20,8 @@ imshow(A)</uiControl>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_1" Position="[65 85 450 319]"/>
     <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_1" Position="[65 63 449 21]" String="Original Image" TooltipString=""/>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[580 85 449 318]"/>
-    <uiControl class="cmbCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="ComboBox_2" Position="[170 460 345 26]" String="MedianFilter|FastMedianFilterApproximation|IAMFA-I" TooltipString=""/>
-    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_2" Position="[65 460 90 26]" String="Apply" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+    <uiControl class="cmbCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="ComboBox_2" Position="[170 470 345 26]" String="MedianFilter|FastMedianFilterApproximation|IAMFA-I" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_2" Position="[65 470 90 26]" String="Apply" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
 
@@ -43,7 +43,7 @@ endswitch
 axes(main.Image_2)
 imshow(A)</uiControl>
     <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_3" Position="[577 65 452 17]" String="Filtered Image" TooltipString=""/>
-    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_3" Position="[580 420 90 28]" String="Save Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_3" Position="[580 430 90 28]" String="Save Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
 
@@ -51,7 +51,11 @@ global A file path;
 
 display([&quot;The restored image has been saved at &quot; path &quot;filtered_&quot; file]);
 imwrite(A, [path &quot;filtered_&quot; file]);</uiControl>
-    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="30" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Button_10" Position="[1040 15 47 43]" String="?" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="30" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_10" Position="[1045 10 47 43]" String="?" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
-% la propiedad 'generateCallback' desde el editor de propiedades</uiControl>
+% la propiedad 'generateCallback' desde el editor de propiedades
+
+figure
+info = imread(&quot;img/info_app1.png&quot;);
+imshow(info);</uiControl>
 </dialog>
