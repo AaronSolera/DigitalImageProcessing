@@ -2,9 +2,7 @@
 <dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 688 1395 392]" Resize="off" VPosition="center" windowStyle="normal">
     <GlobalSrc>% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
-% la propiedad 'generateCallback' desde el editor de propiedades
-
-</GlobalSrc>
+% la propiedad 'generateCallback' desde el editor de propiedades</GlobalSrc>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_1" Position="[45 41 265 228]"/>
     <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_13" Position="[45 25 264 17]" String="Original Image" TooltipString=""/>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[675 43 264 226]"/>

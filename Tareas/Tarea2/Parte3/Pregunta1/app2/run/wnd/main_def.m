@@ -400,8 +400,6 @@ function ret = show_main()
 % El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
-
-
   ret = main;
 end
 

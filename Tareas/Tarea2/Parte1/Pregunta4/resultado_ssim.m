@@ -25,5 +25,5 @@ end
 hist(H_V1);
 hist(H_V2);
 
-close(video_1)
-close(video_2)
+close(V_1)
+close(V_2)

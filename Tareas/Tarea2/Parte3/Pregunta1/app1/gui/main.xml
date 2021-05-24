@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 523 1118 557]" Resize="off" VPosition="center" windowStyle="normal">
+<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 503 1124 577]" Resize="off" VPosition="center" windowStyle="normal">
     <GlobalSrc>%
 % El código fuente escrito aquí será ejecutado cuando
 % la ventana se haga visible. Funciona como el evento 'onLoad' de otros lenguajes.
 %
-</GlobalSrc>
+pkg load image</GlobalSrc>
     <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_1" Position="[65 430 90 27]" String="Load Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
@@ -25,32 +25,36 @@ imshow(A)</uiControl>
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
 
-global A
+global A F
 
 filter_id = get(main.ComboBox_2, 'Value');
 
 switch (filter_id)
 	case 1
-   		% Median Filter function
+		% Median Filter function
+   		F = MF(A);
   	case 2
    		% Fast Median Filter Approximation function
+		F = FMFA(A);
   	case 3
    		%  IAMFA-I function
+		F = IAMFA(A);
   	otherwise
    		% Median Filter function
+		F = MF(A);
 endswitch
 
 axes(main.Image_2)
-imshow(A)</uiControl>
+imshow(F)</uiControl>
     <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="false" Name="Label_3" Position="[577 65 452 17]" String="Filtered Image" TooltipString=""/>
     <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_3" Position="[580 430 90 28]" String="Save Image" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
 
-global A file path;
+global A F file path;
 
 display([&quot;The restored image has been saved at &quot; path &quot;filtered_&quot; file]);
-imwrite(A, [path &quot;filtered_&quot; file]);</uiControl>
+imwrite(F, [path &quot;filtered_&quot; file]);</uiControl>
     <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="30" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_10" Position="[1045 10 47 43]" String="?" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
