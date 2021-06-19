@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[1 604 1058 475]" Resize="off" VPosition="center" windowStyle="normal">
+<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[0 623 1080 457]" Resize="off" VPosition="center" windowStyle="normal">
     <GlobalSrc>%
 % El código fuente escrito aquí será ejecutado cuando
 % la ventana se haga visible. Funciona como el evento 'onLoad' de otros lenguajes.
@@ -7,8 +7,8 @@
 </GlobalSrc>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_1" Position="[290 90 322 249]"/>
     <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[675 90 320 249]"/>
-    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_1" Position="[290 70 322 21]" String="Imagen Original" TooltipString=""/>
-    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_2" Position="[672 70 322 17]" String="Imagen con Filtro" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_1" Position="[290 70 114 17]" String="Imagen Original" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_2" Position="[672 70 124 17]" String="Imagen con Filtro" TooltipString=""/>
     <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_1" Position="[70 70 111 45]" String="Cargar imagen" TooltipString="">% El código que se indique aquí será ejecutado cuando el usuario presione en el botón.
 % Por defecto, todos los eventos están desactivados, para activarlos debe activar
 % la propiedad 'generateCallback' desde el editor de propiedades
@@ -22,7 +22,7 @@ imshow(A)
 
 axes(main.Image_2)
 imshow(A)</uiControl>
-    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_3" Position="[75 242 128 20]" String="Opciones" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="center" isAutoSize="true" Name="Label_3" Position="[75 242 67 17]" String="Opciones" TooltipString=""/>
     <uiControl class="checkBoxCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="CheckBox_4" Position="[75 315 129 23]" String="Gaussiano (5x5)" TooltipString="" Value="deselect">B=filtro_general(A, &quot;gaussiano5&quot;); %La filtro_general negativo la implementamos en Octave
 
 axes(main.Image_2)

@@ -13,7 +13,7 @@ C = imerode(A, B);
 subplot(1,3,2);
 imshow(C);
 title('Imagen Erosion')
-D = imdilate(C, B);
+
 subplot(1,3,3);
 imshow(D);
 title('Imagen Dilatada')
