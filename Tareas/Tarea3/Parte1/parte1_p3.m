@@ -25,9 +25,10 @@ for k = 1 : fr
   Y(:,:,:,k) = fondo;
 end
 
+video = VideoWriter('videdo.mp4');
 for i = 1 : fr
   writeVideo(video, Y(:,:,:,i));
 endfor
 
+close(V_0)
 close(V_1)
-close(V_2)
